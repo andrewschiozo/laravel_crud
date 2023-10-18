@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar um novo produto</title>
-</head>
-<body>
+@extends('layout.app')
+@section('content')
+
     <h2>Produtos</h2>
     <a href="#">Novo produto</a>
     <table>
@@ -36,5 +31,4 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@stop
