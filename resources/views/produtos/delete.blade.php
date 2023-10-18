@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excluir um produto</title>
-</head>
-<body>
+@extends('layout.app')
+@section('content')
+
     <form action="{{route('excluir_produto', ['id' => $produto->id])}}" method="POST">
         @csrf
         <label for="">Tem certeza que deseja excluir este produto?</label> <br />
@@ -22,5 +17,5 @@
 
         <button>Sim</button>
     </form>
-</body>
-</html>
+
+@stop
