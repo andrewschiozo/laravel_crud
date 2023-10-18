@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use Illuminate\Support\Facades\View;
 
 class ProdutosController extends Controller
 {
@@ -11,12 +12,12 @@ class ProdutosController extends Controller
 
     public function index()
     {
-        return view('produtos.list', ['produtos' => Produto::all()]);
+        return View::make('produtos.list', ['produtos' => Produto::all()]);
     }
 
     public function create()
     {
-        return view('produtos.create');
+        return View::make('produtos.create');
     }
 
     public function store(Request $request)
@@ -33,12 +34,12 @@ class ProdutosController extends Controller
 
     public function show($id)
     {
-        return view('produtos.show', ['produto' => Produto::findOrFail($id)]);
+        return View::make('produtos.show', ['produto' => Produto::findOrFail($id)]);
     }
 
     public function edit($id)
     {
-        return view('produtos.edit', ['produto' => Produto::findOrFail($id)]);
+        return View::make('produtos.edit', ['produto' => Produto::findOrFail($id)]);
     }
 
     public function update(Request $request, $id)
@@ -55,7 +56,7 @@ class ProdutosController extends Controller
 
     public function delete($id)
     {
-        return view('produtos.delete', ['produto' => Produto::findOrFail($id)]);
+        return View::make('produtos.delete', ['produto' => Produto::findOrFail($id)]);
     }
 
     public function destroy($id)
