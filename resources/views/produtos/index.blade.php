@@ -68,7 +68,7 @@
                     <td class="produto_created_at text-center"></td>
                     <td class="produto_updated_at text-center"></td>
                     <td class="produto_opcoes text-center">
-                        <button class="btn btn-warning produto_btn_editar"><i class="gg-pen"></i></button>
+                        <button class="btn btn-warning produto_btn_editar" style="padding: 12px"><i class="gg-pen"></i></button>
                          <button class="btn btn-danger produto_btn_excluir"><i class="gg-trash"></i></button>
                     </td>
                 </tr>
