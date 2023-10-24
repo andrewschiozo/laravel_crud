@@ -12,34 +12,24 @@ class ProdutosController extends Controller
 
     public function index()
     {
-        return View::make('produtos.list', ['produtos' => Produto::all()]);
+        return View::make('produtos.index');
     }
 
-    public function create()
+    public function get($id = null)
     {
-        return View::make('produtos.create');
+        return response()->json($id ? Produto::findOrFail($id) : Produto::all());
     }
 
     public function store(Request $request)
     {
-        Produto::create([
+        $create = Produto::create([
             'nome' => $request->input('nome'),
             'custo' => $request->input('custo'),
             'preco' => $request->input('preco'),
             'quantidade' => $request->input('quantidade')
         ]);
 
-        return 'Produto criado com sucesso!';
-    }
-
-    public function show($id)
-    {
-        return View::make('produtos.show', ['produto' => Produto::findOrFail($id)]);
-    }
-
-    public function edit($id)
-    {
-        return View::make('produtos.edit', ['produto' => Produto::findOrFail($id)]);
+        return response()->json($create->id);
     }
 
     public function update(Request $request, $id)
@@ -54,14 +44,8 @@ class ProdutosController extends Controller
         return 'Produto atualizado com sucesso!';
     }
 
-    public function delete($id)
-    {
-        return View::make('produtos.delete', ['produto' => Produto::findOrFail($id)]);
-    }
-
     public function destroy($id)
     {
-        Produto::findOrfail($id)->delete();
-        return 'Produto excluído com sucesso';
+        return response()->json(Produto::findOrfail($id)->delete());
     }
 }
