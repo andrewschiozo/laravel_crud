@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('custo', 19, 2);
             $table->decimal('preco', 19, 2);
             $table->integer('quantidade');
+            $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->timestamps();
         });
