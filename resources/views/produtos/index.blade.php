@@ -25,22 +25,24 @@
 
                             <div class="col">
                                 <label for="">Custo</label> <br />
-                                <input type="number" class="form-control" id="produto_form_custo" name="custo"> <br />
+                                <input type="number" class="form-control" id="produto_form_custo" name="custo">
                             </div>
 
                             <div class="col">
                                 <label for="">Preço</label> <br />
-                                <input type="number" class="form-control" id="produto_form_preco" name="preco"> <br />
+                                <input type="number" class="form-control" id="produto_form_preco" name="preco">
                             </div>
 
                             <div class="col">
                                 <label for="">Qtd</label> <br />
-                                <input type="number" class="form-control" id="produto_form_quantidade" name="quantidade"> <br />
+                                <input type="number" class="form-control" id="produto_form_quantidade" name="quantidade">
                             </div>
                         </div>
 
-                        <div class="row mx-1">
-                            <button class="btn btn-success">Salvar</button>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button class="w-100 btn btn-success">Salvar</button>
+                            </div>
                         </div>
                     </form>
                 </div>
