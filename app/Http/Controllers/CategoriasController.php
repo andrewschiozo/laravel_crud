@@ -17,4 +17,13 @@ class CategoriasController extends Controller
     {
         return response()->json($id ? Categoria::findOrFail($id) : Categoria::all());
     }
+
+    public function store(Request $request)
+    {
+        $create = Categoria::create([
+            'nome' => $request->input('nome')
+        ]);
+
+        return response()->json($create->id);
+    }
 }
