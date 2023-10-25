@@ -17,7 +17,7 @@ class ProdutosController extends Controller
 
     public function get($id = null)
     {
-        return response()->json($id ? Produto::findOrFail($id) : Produto::all());
+        return response()->json($id ? Produto::with('categoria')->findOrFail($id) : Produto::with('categoria')->get());
     }
 
     public function store(Request $request)
