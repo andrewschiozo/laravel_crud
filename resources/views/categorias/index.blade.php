@@ -4,7 +4,34 @@
     <div class="row">
         <div class="col-12">
             <h2>Categorias</h2>
+            <div class="text-end">
+                <a class="btn btn-secondary" id="categoria_btn_novo" role="button">Nova categoria</a>
+            </div>
 
+            <div class="collapse my-3" id="categoria_collapse">
+                <i class="gg-close" id="btn_collapse_close" style="cursor: pointer; position: absolute; z-index: 2; margin-left: 97%"></i>
+                <div class="card card-body">
+                    <form id="categoria_form" role="form">
+                        @csrf
+                        <div class="row">
+                            <div class="col-1">
+                                <label for="categoria_id">#</label>
+                                <input type="number" class="form-control" id="categoria_form_id" placeholder="#" name="id" disabled>
+                            </div>
+                            <div class="col">
+                                <label for="categoria_nome">Nome</label>
+                                <input type="text" class="form-control" id="categoria_form_nome" placeholder="Nome" name="nome">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button class="w-100 btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <table class="table table-stripped col-12" id="categoria_tabela">
@@ -65,5 +92,40 @@
         }
 
         Categoria = new Categoria()
+
+        $('#categoria_tabela').on('click', '.categoria_btn_editar', function(){
+            let row = data[$(this).closest('tr').attr('key')]
+            $.each(row, function(key, val){
+                $('#categoria_form_' + key).val(val)
+            })
+            $('#categoria_collapse').removeClass('collapse').addClass('collapse.show')
+        })
+
+        $('#categoria_form').submit(function(e){
+            e.preventDefault()
+            url = $('#categoria_form_id').val() == '' ?  '/categoria/novo' : '/categoria/editar/' + $('#categoria_form_id').val()
+            $.post(url, $(this).serialize(), function(response){
+                if(response)
+                {
+                    alert('Registro salvo!')
+                    Categoria.list()
+                    $('#categoria_form').each(function(){
+                        this.reset()
+                    })
+                }
+            })
+
+        })
+
+        $('#categoria_btn_novo').click(function(){
+            $('#categoria_form').each(function(){
+                this.reset()
+            })
+            $('#categoria_collapse').removeClass('collapse').addClass('collapse.show')
+        })
+
+        $('#btn_collapse_close').click(function(){
+            $('#categoria_collapse').addClass('collapse').removeClass('collapse.show')
+        })
     </script>
 @stop
