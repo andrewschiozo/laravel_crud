@@ -23,17 +23,22 @@
                                 <input type="text" class="form-control" id="produto_form_nome" placeholder="Nome" name="nome">
                             </div>
 
-                            <div class="col">
+                            <div class="col-1">
                                 <label for="">Custo</label> <br />
                                 <input type="number" class="form-control" id="produto_form_custo" name="custo">
                             </div>
 
-                            <div class="col">
+                            <div class="col-1">
                                 <label for="">Preço</label> <br />
                                 <input type="number" class="form-control" id="produto_form_preco" name="preco">
                             </div>
 
                             <div class="col">
+                                <label for="">Categoria</label> <br />
+                                <select class="form-control" id="produto_form_categoria_id" name="categoria_id"></select>
+                            </div>
+
+                            <div class="col-1">
                                 <label for="">Qtd</label> <br />
                                 <input type="number" class="form-control" id="produto_form_quantidade" name="quantidade">
                             </div>
@@ -93,6 +98,7 @@
         class Produto{
             constructor(){
                 this.list()
+                this.getCategorias()
             }
             list(){
                 $.get('/produto/get', function(response){
@@ -108,6 +114,14 @@
                         tr.removeClass('d-none')
                         tr.removeClass('produto_tr_modelo')
                         $('#produto_tabela tbody').append(tr)
+                    })
+                })
+            }
+            getCategorias(){
+                $.get('/categoria/get', function(response){
+                    $('#produto_form_categoria_id').html('')
+                    $.each(response, function(index, data){
+                        $('#produto_form_categoria_id').append($('<option />').val(data.id).text(data.nome))
                     })
                 })
             }
@@ -132,6 +146,7 @@
             $.each(row, function(key, val){
                 $('#produto_form_' + key).val(val)
             })
+            $('#produto_form_categoria').val(row.categoria.id)
             $('#produto_collapse').removeClass('collapse').addClass('collapse.show')
         })
 

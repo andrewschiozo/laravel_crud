@@ -26,7 +26,8 @@ class ProdutosController extends Controller
             'nome' => $request->input('nome'),
             'custo' => $request->input('custo'),
             'preco' => $request->input('preco'),
-            'quantidade' => $request->input('quantidade')
+            'quantidade' => $request->input('quantidade'),
+            'categoria_id' => $request->input('categoria_id')
         ]);
 
         return response()->json($create->id);
@@ -38,7 +39,8 @@ class ProdutosController extends Controller
             'nome'=> $request->input('nome'),
             'custo' => $request->input('custo'),
             'preco' => $request->input('preco'),
-            'quantidade' => $request->input('quantidade')
+            'quantidade' => $request->input('quantidade'),
+            'categoria_id' => $request->input('categoria_id')
         ]);
 
         return 'Produto atualizado com sucesso!';
