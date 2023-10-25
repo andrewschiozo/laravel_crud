@@ -38,4 +38,9 @@ class CategoriasController extends Controller
 
         return 'Produto atualizado com sucesso!';
     }
+
+    public function destroy($id)
+    {
+        return response()->json(Categoria::findOrfail($id)->delete());
+    }
 }
