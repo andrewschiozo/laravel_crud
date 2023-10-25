@@ -54,18 +54,20 @@
                 <tr>
                     <th class=" text-end">#</th>
                     <th class="">Nome</th>
-                    <th class=" text-end">Custo <small>(R$)</small></th>
-                    <th class=" text-end">Preço <small>(R$)</small></th>
-                    <th class=" text-end">Qtd</th>
-                    <th class=" text-center">Criado em</th>
-                    <th class=" text-center">Atualizado em</th>
-                    <th class=" text-center">Opções</th>
+                    <th class="text-end">Custo <small>(R$)</small></th>
+                    <th class="text-end">Preço <small>(R$)</small></th>
+                    <th class="text-center">Categoria</th>
+                    <th class="text-end">Qtd</th>
+                    <th class="text-center">Criado em</th>
+                    <th class="text-center">Atualizado em</th>
+                    <th class="text-center">Opções</th>
                 </tr>
                 <tr class="produto_tr_modelo d-none">
                     <td class="produto_id text-end"></td>
                     <td class="produto_nome"></td>
                     <td class="produto_custo text-end"></td>
                     <td class="produto_preco text-end"></td>
+                    <td class="produto_categoria text-center">Categoria</td>
                     <td class="produto_quantidade text-end"></td>
                     <td class="produto_created_at text-center"></td>
                     <td class="produto_updated_at text-center"></td>
@@ -102,6 +104,7 @@
                             val = (key == 'created_at' || key == 'updated_at') ? new Date(val).toLocaleString('pt-BR') : val
                             tr.find('.produto_' + key).text(val)
                         })
+                        tr.find('.produto_categoria').text(data.categoria.nome)
                         tr.removeClass('d-none')
                         tr.removeClass('produto_tr_modelo')
                         $('#produto_tabela tbody').append(tr)
