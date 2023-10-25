@@ -88,6 +88,16 @@
                 })
             }
             delete(id){
+                self = this
+                $.post('/categoria/excluir/' + id, function(response){
+                    if(response)
+                    {
+                        alert('Categoria ' + id + ' excluído')
+                        self.list()
+                        return
+                    }
+                    alert('Ops')
+                })
             }
         }
 

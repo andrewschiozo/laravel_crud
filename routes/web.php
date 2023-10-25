@@ -27,3 +27,6 @@ Route::post('/produto/excluir/{id}', [App\Http\Controllers\ProdutosController::c
 // Categoria
 Route::get('/categoria', [App\Http\Controllers\CategoriasController::class, 'index']);
 Route::get('/categoria/get/{id?}', [App\Http\Controllers\CategoriasController::class, 'get']);
+Route::post('/categoria/novo', [App\Http\Controllers\CategoriasController::class, 'store']);
+Route::post('/categoria/editar/{id}', [App\Http\Controllers\CategoriasController::class, 'update']);
+Route::post('/categoria/excluir/{id}', [App\Http\Controllers\CategoriasController::class,'destroy']);
