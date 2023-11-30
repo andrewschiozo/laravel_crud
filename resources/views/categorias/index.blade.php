@@ -14,11 +14,11 @@
                     <form id="categoria_form" role="form">
                         @csrf
                         <div class="row">
-                            <div class="col-1">
+                            <div class="col-sm-12 col-md-1">
                                 <label for="categoria_id">#</label>
                                 <input type="number" class="form-control" id="categoria_form_id" placeholder="#" name="id" disabled>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-12 col-md-11dee">
                                 <label for="categoria_nome">Nome</label>
                                 <input type="text" class="form-control" id="categoria_form_nome" placeholder="Nome" name="nome">
                             </div>
@@ -37,18 +37,18 @@
         <table class="table table-stripped col-12" id="categoria_tabela">
             <thead>
                 <tr>
-                    <th class=" text-end">#</th>
+                    <th class="d-none d-md-table-cell text-end">#</th>
                     <th class="">Nome</th>
-                    <th class=" text-center">Criado em</th>
-                    <th class=" text-center">Atualizado em</th>
-                    <th class=" text-center">Opções</th>
+                    <th class="d-none d-md-table-cell text-center">Criado em</th>
+                    <th class="d-none d-md-table-cell text-center">Atualizado em</th>
+                    <th class="d-none d-md-table-cell text-center">Opções</th>
                 </tr>
                 <tr class="categoria_tr_modelo d-none">
-                    <td class="categoria_id text-end"></td>
+                    <td class="d-none d-md-table-cell categoria_id text-end"></td>
                     <td class="categoria_nome"></td>
-                    <td class="categoria_created_at text-center"></td>
-                    <td class="categoria_updated_at text-center"></td>
-                    <td class="categoria_opcoes text-center">
+                    <td class="d-none d-md-table-cell categoria_created_at text-center"></td>
+                    <td class="d-none d-md-table-cell categoria_updated_at text-center"></td>
+                    <td class="d-none d-md-table-cell categoria_opcoes text-center">
                         <button class="btn btn-warning categoria_btn_editar" style="padding: 12px"><i class="gg-pen"></i></button>
                          <button class="btn btn-danger categoria_btn_excluir"><i class="gg-trash"></i></button>
                     </td>

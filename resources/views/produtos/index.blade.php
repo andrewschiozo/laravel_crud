@@ -14,31 +14,31 @@
                     <form id="produto_form" role="form">
                         @csrf
                         <div class="row">
-                            <div class="col-1">
+                            <div class="col-sm-12 col-md-1">
                                 <label for="produto_id">#</label>
                                 <input type="number" class="form-control" id="produto_form_id" placeholder="#" name="id" disabled>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-1 col-md-6">
                                 <label for="produto_nome">Nome</label>
                                 <input type="text" class="form-control" id="produto_form_nome" placeholder="Nome" name="nome">
                             </div>
 
-                            <div class="col-1">
+                            <div class="col-sm-6 col-md-1">
                                 <label for="">Custo</label> <br />
                                 <input type="number" class="form-control" id="produto_form_custo" name="custo">
                             </div>
 
-                            <div class="col-1">
+                            <div class="col-sm-6 col-md-1">
                                 <label for="">Preço</label> <br />
                                 <input type="number" class="form-control" id="produto_form_preco" name="preco">
                             </div>
 
-                            <div class="col">
+                            <div class="col-sm-1 col-md-2">
                                 <label for="">Categoria</label> <br />
                                 <select class="form-control" id="produto_form_categoria_id" name="categoria_id"></select>
                             </div>
 
-                            <div class="col-1">
+                            <div class="col-sm-1 col-md-1">
                                 <label for="">Qtd</label> <br />
                                 <input type="number" class="form-control" id="produto_form_quantidade" name="quantidade">
                             </div>
@@ -57,28 +57,28 @@
         <table class="table table-stripped col-12" id="produto_tabela">
             <thead>
                 <tr>
-                    <th class=" text-end">#</th>
+                    <th class="d-none d-md-table-cell text-end">#</th>
                     <th class="">Nome</th>
                     <th class="text-end">Custo <small>(R$)</small></th>
                     <th class="text-end">Preço <small>(R$)</small></th>
                     <th class="text-center">Categoria</th>
                     <th class="text-end">Qtd</th>
-                    <th class="text-center">Criado em</th>
-                    <th class="text-center">Atualizado em</th>
-                    <th class="text-center">Opções</th>
+                    <th class="d-none d-md-table-cell text-center">Criado em</th>
+                    <th class="d-none d-md-table-cell text-center">Atualizado em</th>
+                    <th class="d-none d-md-table-cell text-center">Opções</th>
                 </tr>
                 <tr class="produto_tr_modelo d-none">
-                    <td class="produto_id text-end"></td>
+                    <td class="d-none d-md-table-cell produto_id text-end"></td>
                     <td class="produto_nome"></td>
                     <td class="produto_custo text-end"></td>
                     <td class="produto_preco text-end"></td>
-                    <td class="produto_categoria text-center">Categoria</td>
+                    <td class="produto_categoria text-center"></td>
                     <td class="produto_quantidade text-end"></td>
-                    <td class="produto_created_at text-center"></td>
-                    <td class="produto_updated_at text-center"></td>
-                    <td class="produto_opcoes text-center">
-                        <button class="btn btn-warning produto_btn_editar" style="padding: 12px"><i class="gg-pen"></i></button>
-                         <button class="btn btn-danger produto_btn_excluir"><i class="gg-trash"></i></button>
+                    <td class="d-none d-md-table-cell produto_created_at text-center"></td>
+                    <td class="d-none d-md-table-cell produto_updated_at text-center"></td>
+                    <td class="d-none d-md-table-cell produto_opcoes text-center">
+                        <button class="btn btn-sm btn-warning produto_btn_editar">Editar</button>
+                        <button class="btn btn-sm btn-danger produto_btn_excluir">Apagar</button>
                     </td>
                 </tr>
             </thead>
